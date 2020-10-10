@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shuriken : MonoBehaviour
+public class Shuriken : Weapon
 {
     public float velocity = 1f;
     public string weaponName = "Shuriken";
@@ -22,8 +22,8 @@ public class Shuriken : MonoBehaviour
 
     }
 
-    public void Behavior()
+    public override void Throw()
     {
-        // teleport
+        Instantiate(projectilePrefab, throwPoint.position, throwPoint.rotation);
     }
 }

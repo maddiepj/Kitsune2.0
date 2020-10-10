@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class PlayerThrow : MonoBehaviour
 {
-
     public WeaponsManager weaponMgr;
-    public GameObject player;
-    public Weapon projectile;
+    public GameObject weapon;
+    public Transform throwPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        weaponMgr = GetComponent<WeaponsManager>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        projectile = weaponMgr.projectile;
+       
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject projectile = Instantiate(weaponMgr.currentProjectile, throwPoint.position, throwPoint.rotation);
+            Weapon newWeapon = projectile.GetComponent<Weapon>();
+            newWeapon.Throw();
+        }
     }
-
-     void Throw()
-     {
-        //public float velocity = projectile.velocity;
-     }
 
 }

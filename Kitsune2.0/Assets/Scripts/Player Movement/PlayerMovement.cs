@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public bool isGrounded = false;
+    public bool facingRight = false;
 
     // Start is called before the first frame update
     void Start()
@@ -18,13 +19,17 @@ public class PlayerMovement : MonoBehaviour
     {
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+
+        if (movement.x < 0 && !facingRight)
+        {
+            Flip();
+        }
+        else if (movement.x > 0 && facingRight)
+        {
+            Flip();
+        }
+
         transform.position += movement * Time.deltaTime * moveSpeed;
-
-        //if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        //{
-        //    gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
-        //}
-
     }
 
     public void Jump()
@@ -33,6 +38,13 @@ public class PlayerMovement : MonoBehaviour
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
         }
+    }
+
+    public void Flip()
+    {
+        facingRight = !facingRight;
+
+        transform.Rotate(0f, 180f, 0f);
     }
 
 }
