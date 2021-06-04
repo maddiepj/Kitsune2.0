@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public bool isGrounded = false;
-    public bool facingRight = false;
+    public bool facingRight;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        facingRight = false;
     }
 
     // Update is called once per frame
@@ -20,11 +20,11 @@ public class PlayerMovement : MonoBehaviour
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
 
-        if (movement.x < 0 && !facingRight)
+        if (movement.x < 0 && facingRight)
         {
             Flip();
         }
-        else if (movement.x > 0 && facingRight)
+        else if (movement.x > 0 && !facingRight)
         {
             Flip();
         }

@@ -18,7 +18,7 @@ public class BasicKunai : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        Destroy(gameObject, timeBeforeDestroy);
+        //Destroy(gameObject, timeBeforeDestroy);
     }
 
     // Update is called once per frame
@@ -27,14 +27,16 @@ public class BasicKunai : Weapon
       
     }
 
-    public override void Throw()
+    public override void Throw(bool facingRight, float lookDir)
     {
-        rigidBody.velocity = transform.right * velocity;
+        Debug.Log("Kunai thrown");
+        rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);
     }
 
-    public override void OnTriggerEnter2D()
+    public override void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Debug.Log("Enemy hit");
+        Debug.Log("Enemy hit" + hitInfo.name);
+        Destroy(gameObject);
     }
 
 }

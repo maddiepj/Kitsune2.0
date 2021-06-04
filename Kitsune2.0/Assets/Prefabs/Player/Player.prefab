@@ -129,7 +129,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5421001665213729457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.036143232, y: -3.3177886, z: -0.9082031}
+  m_LocalPosition: {x: -0.066, y: -4.55, z: 0}
   m_LocalScale: {x: 4.2813997, y: 4.2813997, z: 4.2813997}
   m_Children:
   - {fileID: 5421001663939398408}
@@ -265,3 +265,7 @@ MonoBehaviour:
     type: 3}
   weapon: {fileID: 0}
   throwPoint: {fileID: 5421001664696143333}
+  camera: {fileID: 0}
+  playerAim: {fileID: 0}
+  currentProjectile: {fileID: 0}
+  rigidBody: {fileID: 0}

@@ -6,45 +6,42 @@ public class WeaponsManager : MonoBehaviour
 {
 
     public GameObject kunai;
-    //public GameObject shuriken;
+    public GameObject shuriken;
     public GameObject currentProjectile;
+    public BasicKunai kunaiWeapon;
+    public Shuriken shurikenWeapon;
     public GameObject player;
     public Transform throwPoint;
+    public bool playerFacingRight;
+    public Weapon currentWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentProjectile = kunai;
+        currentProjectile = shuriken;
+        currentWeapon = shurikenWeapon;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        //if (Input.GetKeyDown("1"))
-        //{
-        //    currentProjectile = shuriken;
-        //}
+        if (Input.GetKeyDown("1"))
+        {
+            currentProjectile = shuriken;
+        }
 
         if (Input.GetKeyDown("2"))
         {
             currentProjectile = kunai;
         }
 
+        //Debug.Log("Current projectile is " + currentProjectile);
+
     }
 
-    //public string getWeapon()
-    //{
-    //    if (currentProjectile != null)
-    //    {
-    //        Debug.Log("Current weapon is " + currentProjectile);
-    //        return currentProjectile;
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("You somehow don't have a weapon selected. You should not be seeing this message.");
-    //        return null;
-    //    }
-    
+    public GameObject getProjectile()
+    {
+        return currentProjectile;
+    }
 
 }
