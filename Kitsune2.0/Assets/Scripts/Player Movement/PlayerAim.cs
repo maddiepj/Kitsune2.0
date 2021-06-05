@@ -30,11 +30,12 @@ public class PlayerAim : MonoBehaviour
         mousePos = camera.GetComponent<Camera>().ScreenToWorldPoint(Input.mousePosition);
 
         line = gameObject.GetComponent<LineRenderer>();
-        line.SetWidth(0.5f, 0.5f);
+        line.SetWidth(0.05f, 0.05f);
 
         Vector2 lookDirection = mousePos - rigidBody.position;
         angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
+        // Check if facing right and mouse is to the right of the player
         if (facingRight && mousePos.x > gameObject.transform.position.x && (angle < 125 && angle > -125))
         {
             line.enabled = true;
@@ -42,7 +43,6 @@ public class PlayerAim : MonoBehaviour
 
             lookDirection = Vector3.ClampMagnitude(lookDirection, 1);
 
-            //angle = Mathf.Clamp(angle, -45, 45);
             rotation = Quaternion.Euler(0f, 0f, angle);
 
             Vector2 test = new Vector2(mousePos.x, mousePos.y);
@@ -51,6 +51,8 @@ public class PlayerAim : MonoBehaviour
             line.SetPosition(1, transform.position);
         }
 
+
+        // Check if facing left and mouse is to the left of the player
         else if (!facingRight && mousePos.x < gameObject.transform.position.x && ((angle > 125 && angle <= 180) || (angle < -90 && angle > -180)))
         {
             line.enabled = true;
@@ -58,7 +60,6 @@ public class PlayerAim : MonoBehaviour
 
             lookDirection = Vector3.ClampMagnitude(lookDirection, 1);
 
-            //angle = Mathf.Clamp(angle, 135, 180);
             rotation = Quaternion.Euler(0f, 0f, angle);
 
             Vector2 test = new Vector2(mousePos.x, mousePos.y);
@@ -67,14 +68,12 @@ public class PlayerAim : MonoBehaviour
             line.SetPosition(1, transform.position);
         }
 
+        // Otherwise player is unable to shoot (e.g. you can't shoot in a direction you're not facing)
         else
         {
             line.enabled = false;
             canShoot = false;
         }
-
-        //Debug.Log(angle);
-
     }
 
 

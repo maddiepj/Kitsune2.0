@@ -5,21 +5,19 @@ using UnityEngine;
 public class WeaponsManager : MonoBehaviour
 {
 
-    public GameObject kunai;
-    public GameObject shuriken;
-    public GameObject currentProjectile;
+    public Weapon currentProjectile;
     public BasicKunai kunaiWeapon;
     public Shuriken shurikenWeapon;
     public GameObject player;
     public Transform throwPoint;
     public bool playerFacingRight;
     public Weapon currentWeapon;
+    public int selectedProjectile = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentProjectile = shuriken;
-        currentWeapon = shurikenWeapon;
+        selectedProjectile = 1;
     }
 
     // Update is called once per frame
@@ -27,21 +25,31 @@ public class WeaponsManager : MonoBehaviour
     {
         if (Input.GetKeyDown("1"))
         {
-            currentProjectile = shuriken;
+            selectedProjectile = 1;
         }
 
         if (Input.GetKeyDown("2"))
         {
-            currentProjectile = kunai;
+            selectedProjectile = 2;
         }
-
-        //Debug.Log("Current projectile is " + currentProjectile);
-
     }
 
-    public GameObject getProjectile()
+    public Weapon getProjectile()
     {
-        return currentProjectile;
+        if (selectedProjectile == 1)
+        {
+            return shurikenWeapon;
+
+        }
+        else if (selectedProjectile == 2)
+        {
+            return kunaiWeapon;
+        }
+        else
+        {
+            Debug.Log("You don't have a projectile selected, this should never happen. selectedProjectile: " + selectedProjectile);
+            return null;
+        }
     }
 
 }

@@ -43,14 +43,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d67731949cdae9245a1690a6679a18b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kunai: {fileID: 7445868365956920279, guid: ceab651a8b567e549a5db60a6ecc6e86, type: 3}
-  shuriken: {fileID: 1546035801521691731, guid: e25f080eb47d1d84b9db1cf123cc74fc,
+  currentProjectile: {fileID: 0}
+  kunaiWeapon: {fileID: 7445868365956920298, guid: ceab651a8b567e549a5db60a6ecc6e86,
     type: 3}
-  currentProjectile: {fileID: 7445868365956920279, guid: ceab651a8b567e549a5db60a6ecc6e86,
+  shurikenWeapon: {fileID: 1961300756031471705, guid: 59ca2b19298cb4a8aaa2c111bb429352,
     type: 3}
-  kunaiWeapon: {fileID: 0}
-  shurikenWeapon: {fileID: 0}
   player: {fileID: 5421001665213729457, guid: 02f19f3e57dc0da49a908c33ccd56a65, type: 3}
   throwPoint: {fileID: 0}
   playerFacingRight: 0
   currentWeapon: {fileID: 0}
+  selectedProjectile: 1

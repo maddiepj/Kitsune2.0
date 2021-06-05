@@ -15,7 +15,7 @@ public class Shuriken : Weapon
     // Start is called before the first frame update
     void Start()
     {
-        //Destroy(gameObject, timeBeforeDestroy);
+
     }
 
     // Update is called once per frame
@@ -26,8 +26,14 @@ public class Shuriken : Weapon
 
     public override void Throw(bool facingRight, float lookDir)
     {
-        Debug.Log("Shuriken thrown");
-        rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);
+        if (facingRight)
+        {
+            rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);
+        }
+        else
+        {
+            rigidBody.AddForce(-transform.right * velocity, ForceMode2D.Impulse);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

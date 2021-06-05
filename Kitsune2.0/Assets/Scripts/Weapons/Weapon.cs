@@ -11,20 +11,7 @@ public class Weapon : MonoBehaviour
     public float coolDownLength { get; set; }
     public int damage { get; set; }
     public Transform throwPoint;
-    //public GameObject projectilePrefab;
     public WeaponsManager weaponsManager;
-
-    // Start is called before the first frame update
-    protected virtual void Start()
-    {
-        //weaponsManager = GameObject.FindGameObjectWithTag("WeaponManager").GetComponent<WeaponsManager>();
-    }
-
-    // Update is called once per frame
-    protected virtual void Update()
-    {
-        
-    }
 
    public virtual void Throw(bool facingRight, float dir)
     {

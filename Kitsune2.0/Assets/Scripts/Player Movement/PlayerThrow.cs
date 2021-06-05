@@ -19,21 +19,17 @@ public class PlayerThrow : MonoBehaviour
     void Start()
     {
         playerAim = gameObject.GetComponent<PlayerAim>();
-        Debug.Log("Current projectile is " + weaponMgr.getProjectile());
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("Current projectile is " + weaponMgr.currentProjectile);
-
         if (Input.GetButtonDown("Fire1") && playerAim.canShoot)
         {
             Quaternion rot = playerAim.getRotation();
-            //Debug.Log("Current projectile is " + weaponMgr.getProjectile());
-            GameObject projectile = Instantiate(weaponMgr.getProjectile(), throwPoint.position, rot);
-            Weapon newWeapon = projectile.GetComponent<Weapon>();
-            newWeapon.Throw(playerAim.facingRight, playerAim.getAngle());
+            Weapon projectile = Instantiate(weaponMgr.getProjectile(), throwPoint.position, rot);
+            projectile.Throw(playerAim.facingRight, playerAim.getAngle());
+
         }
     }
 
