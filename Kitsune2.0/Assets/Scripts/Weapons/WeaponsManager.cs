@@ -12,7 +12,7 @@ public class WeaponsManager : MonoBehaviour
     public Transform throwPoint;
     public bool playerFacingRight;
     public Weapon currentWeapon;
-    public int selectedProjectile = 1;
+    private int selectedProjectile = 1;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,9 @@ public class WeaponsManager : MonoBehaviour
         {
             selectedProjectile = 2;
         }
+
+        Debug.Log("WeaponsManager says selectedProjectile is " + selectedProjectile);
+
     }
 
     public Weapon getProjectile()
@@ -50,6 +53,12 @@ public class WeaponsManager : MonoBehaviour
             Debug.Log("You don't have a projectile selected, this should never happen. selectedProjectile: " + selectedProjectile);
             return null;
         }
+    }
+
+
+    public int getSelectedProjectile()
+    {
+        return selectedProjectile;
     }
 
 }

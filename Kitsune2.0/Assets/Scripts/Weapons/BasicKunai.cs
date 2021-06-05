@@ -29,14 +29,7 @@ public class BasicKunai : Weapon
 
     public override void Throw(bool facingRight, float lookDir)
     {
-        if (facingRight)
-        {
-            rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);
-        }
-        else
-        {
-            rigidBody.AddForce(-transform.right * velocity, ForceMode2D.Impulse);
-        }
+        rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);   
     }
 
     public override void OnTriggerEnter2D(Collider2D hitInfo)

@@ -52,4 +52,4 @@ MonoBehaviour:
   throwPoint: {fileID: 0}
   playerFacingRight: 0
   currentWeapon: {fileID: 0}
-  selectedProjectile: 1
+  selectedProjectile: 0

@@ -27,6 +27,8 @@ public class PlayerThrow : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && playerAim.canShoot)
         {
             Quaternion rot = playerAim.getRotation();
+            Debug.Log("PlayerThrow says selectedProjectile is " + weaponMgr.getSelectedProjectile());
+            Debug.Log(weaponMgr.getProjectile().GetType());
             Weapon projectile = Instantiate(weaponMgr.getProjectile(), throwPoint.position, rot);
             projectile.Throw(playerAim.facingRight, playerAim.getAngle());
 

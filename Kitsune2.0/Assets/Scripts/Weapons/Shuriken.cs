@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shuriken : Weapon
 {
-    public float velocity = 1f;
+    private float velocity = 10f;
     public string weaponName = "Shuriken";
     public AudioClip throwSound = null;
     public float coolDownLength = 5;
@@ -26,14 +26,7 @@ public class Shuriken : Weapon
 
     public override void Throw(bool facingRight, float lookDir)
     {
-        if (facingRight)
-        {
-            rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);
-        }
-        else
-        {
-            rigidBody.AddForce(-transform.right * velocity, ForceMode2D.Impulse);
-        }
+        rigidBody.AddForce(transform.right * velocity, ForceMode2D.Impulse);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
